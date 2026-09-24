@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/portofoliocimi/static/css/main.d6db8a45.css",
-    "main.js": "/portofoliocimi/static/js/main.685d016f.js",
+    "main.css": "/portofoliocimi/static/css/main.139c5545.css",
+    "main.js": "/portofoliocimi/static/js/main.f41af8f4.js",
     "static/media/canvas.png": "/portofoliocimi/static/media/canvas.98238a3f344ce10b96ea.png",
     "index.html": "/portofoliocimi/index.html",
-    "main.d6db8a45.css.map": "/portofoliocimi/static/css/main.d6db8a45.css.map",
-    "main.685d016f.js.map": "/portofoliocimi/static/js/main.685d016f.js.map"
+    "main.139c5545.css.map": "/portofoliocimi/static/css/main.139c5545.css.map",
+    "main.f41af8f4.js.map": "/portofoliocimi/static/js/main.f41af8f4.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6db8a45.css",
-    "static/js/main.685d016f.js"
+    "static/css/main.139c5545.css",
+    "static/js/main.f41af8f4.js"
   ]
 }
