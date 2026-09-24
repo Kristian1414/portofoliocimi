@@ -1,0 +1,96 @@
+:root {
+  /* Storybook palette, three colour families (no green):
+     periwinkle blue (light sky -> deep indigo), butter yellow (cream -> honey)
+     and coral as the accent. */
+  --sky: #bcd0f7;
+  --sky-light: #e4ecfd;
+  --sky-deep: #8ea9e6;
+  --paper: #fff8e7;
+  --paper-warm: #fffbf2;
+  --slate: #2e3470;
+  --slate-soft: #8b93c4;
+  --ink: #252a52;
+  --ink-soft: #545a86;
+  --night: #1f2557;
+  --night-2: #343d85;
+  --accent: #f0694a;
+  --accent-deep: #d24a2e;
+  --accent-soft: #ffc4b0;
+  --butter: #ffd66b;
+  --butter-soft: #ffe9a8;
+
+  /* Each section's top and bottom edge is its exact solid --bg colour,
+     so the torn-paper dividers blend in without a seam. */
+  --bg-hero: #d9e2f4;
+  --bg-about: #faf3e4;
+  --bg-story: #1f2557;
+  --bg-works: #eef2f9;
+  --bg-motion: #faf3e4;
+  --bg-contact: #d9e2f4;
+  --bg-footer: #2e3470;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  --radius: 18px;
+  --shadow: 0 18px 40px -18px rgba(37, 42, 82, 0.45);
+  --shadow-soft: 0 10px 30px -14px rgba(37, 42, 82, 0.35);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--bg-about);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
