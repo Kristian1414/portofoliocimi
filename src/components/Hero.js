@@ -64,7 +64,7 @@ export default function Hero({ onOpen }) {
               onClick={() => onOpen(work.id)}
               aria-label={`Open ${work.title}`}
             >
-              <img src={work.media} alt={work.title} />
+              <img src={work.thumb} alt={work.title} />
               <span className="hero__card-label">{work.title}</span>
             </button>
           ))}

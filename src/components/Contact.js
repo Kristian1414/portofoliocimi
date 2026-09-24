@@ -1,13 +1,11 @@
 import { artist } from '../data/works';
 import TornEdge from './TornEdge';
-import FloatingLeaves from './FloatingLeaves';
 import MailPanda from './MailPanda';
 
 export default function Contact() {
   return (
     <section id="contact" className="contact section section--contact">
       <TornEdge color="var(--bg-motion)" position="top" seed={41} />
-      <FloatingLeaves count={6} />
       <div className="container contact__inner">
         <div className="contact__art">
           <MailPanda href={`https://ig.me/m/${artist.handle}`} />

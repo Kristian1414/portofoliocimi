@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import { works } from './data/works';
 import useReveal from './hooks/useReveal';
+import usePauseOffscreen from './hooks/usePauseOffscreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -17,6 +18,7 @@ export default function App() {
   const [showTop, setShowTop] = useState(false);
 
   useReveal();
+  usePauseOffscreen();
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 900);

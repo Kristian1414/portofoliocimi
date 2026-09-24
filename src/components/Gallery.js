@@ -43,11 +43,11 @@ function Card({ work, index, onOpen }) {
       <div className="card__media" style={{ aspectRatio: work.ratio }}>
         {work.type === 'animation' ? (
           <>
-            <video ref={videoRef} src={work.media} poster={work.poster} muted loop playsInline preload="none" />
+            <video ref={videoRef} src={work.media} poster={work.thumb} muted loop playsInline preload="none" />
             <span className="card__badge">▶ Animation</span>
           </>
         ) : (
-          <img src={work.media} alt={work.title} loading="lazy" />
+          <img src={work.thumb} alt={work.title} loading="lazy" decoding="async" />
         )}
         {work.slides.length > 1 && (
           <span className="card__carousel" title={`${work.slides.length} photos`}>

@@ -13,7 +13,7 @@ export default function About({ onOpen }) {
     <section id="about" className="about section section--about">
       <div className="container about__inner">
         <button className="about__portrait reveal" onClick={() => onOpen(portrait.id)} aria-label="Open Favorite Sweater">
-          <img src={portrait.media} alt="Favorite Sweater illustration" loading="lazy" />
+          <img src={portrait.thumb} alt="Favorite Sweater illustration" loading="lazy" decoding="async" />
           <span className="about__stamp">since 2020</span>
         </button>
 

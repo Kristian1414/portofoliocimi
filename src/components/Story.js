@@ -30,7 +30,7 @@ export default function Story({ onOpen }) {
 
       <div className="container story__inner">
         <div className="story__media reveal">
-          <div className="screen">
+          <button className="screen" onClick={() => onOpen(dreamer.id)} aria-label="Watch A Dreamer with sound">
             <video
               style={{ aspectRatio: dreamer.ratio }}
               ref={videoRef}
@@ -41,9 +41,6 @@ export default function Story({ onOpen }) {
               playsInline
               preload="metadata"
             />
-          </div>
-          <button className="btn btn--light story__open" onClick={() => onOpen(dreamer.id)}>
-            ▶ Watch with sound
           </button>
         </div>
 

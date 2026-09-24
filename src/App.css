@@ -216,11 +216,6 @@
 .btn--ghost:hover {
   color: #fff;
 }
-.btn--light {
-  background: #fff;
-  color: var(--night);
-  border-color: #fff;
-}
 .btn--small {
   padding: 8px 18px;
   font-size: 0.85rem;
@@ -762,8 +757,9 @@
   box-shadow: var(--shadow-soft);
 }
 .stats dt {
-  font-family: var(--font-hand);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variant-numeric: lining-nums;
   font-size: 3rem;
   color: var(--accent);
   line-height: 1;
@@ -834,13 +830,26 @@
   gap: 20px;
 }
 .screen {
+  display: block;
   width: 100%;
   padding: 10px;
+  border: none;
   border-radius: 24px;
   background: #151a45;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s;
+}
+.screen:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 36px 70px -20px rgba(0, 0, 0, 0.7), inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+}
+.screen:focus-visible {
+  outline: 3px solid var(--butter);
+  outline-offset: 4px;
 }
 .screen video {
+  display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -1591,8 +1600,23 @@
   .contact__text .hero__actions {
     justify-content: center;
   }
+  /* the text box dissolves into the grid so the video can sit between the
+     title and the letter: eyebrow, title, video, letter */
+  .story__inner {
+    row-gap: 0;
+  }
   .story__text {
+    display: contents;
+  }
+  .story__text .eyebrow {
+    order: -3;
+  }
+  .story__text .section-title {
+    order: -2;
+  }
+  .story__media {
     order: -1;
+    margin: 4px 0 32px;
   }
   .story__text .section-title,
   .story__text .eyebrow {
@@ -1770,5 +1794,49 @@
     width: 60px;
     height: 60px;
     top: 5%;
+  }
+}
+
+/* ---------- Performance ---------- */
+/* looping decorations stop while their section is off screen */
+.is-offscreen *,
+.is-offscreen *::before,
+.is-offscreen *::after {
+  animation-play-state: paused !important;
+}
+
+/* phones & tablets: drop the effects that are costly for a mobile GPU */
+@media (max-width: 900px) {
+  /* a fixed blend layer over the whole page is repainted on every scroll */
+  .grain {
+    mix-blend-mode: normal;
+    opacity: 0.1;
+  }
+  /* soft gradients instead of animated blur filters */
+  .blob {
+    filter: none;
+    animation: none;
+  }
+  .blob--1 {
+    background: radial-gradient(closest-side, #fff, transparent);
+  }
+  .blob--2 {
+    background: radial-gradient(closest-side, var(--accent-soft), transparent);
+  }
+  .leaves {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .leaves {
+    display: none;
   }
 }

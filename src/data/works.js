@@ -17,6 +17,8 @@ export const artist = {
 const w = (file) => `${process.env.PUBLIC_URL}/works/${file}`;
 const img = (file) => ({ type: 'image', src: w(file) });
 const vid = (file, poster) => ({ type: 'video', src: w(file), poster: w(poster) });
+// small WebP made by `npm run thumbs`, used wherever a piece is shown as a card
+const thumbOf = (url) => url.replace(/\/works\/(.+)\.jpg$/, '/works/thumbs/$1.webp');
 
 export const works = [
   {
@@ -259,6 +261,7 @@ export const works = [
 ].map((item) => ({
   ...item,
   url: `https://www.instagram.com/p/${item.id}/`,
+  thumb: thumbOf(item.type === 'animation' ? item.poster : item.media),
   // Instagram-style post: one or more slides (photos and/or videos)
   slides: item.slides || [
     { type: item.type === 'animation' ? 'video' : 'image', src: item.media, poster: item.poster },
