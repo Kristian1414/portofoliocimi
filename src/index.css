@@ -48,6 +48,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide the focus ring on tap/click, keep it for keyboard navigation */
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 body {
